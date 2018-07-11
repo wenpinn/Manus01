@@ -9,6 +9,7 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     EditText ed1,ed2;
     TextView resultText;
+    Button popupbutton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         ed1=findViewById(R.id.ed1);
         ed2=findViewById(R.id.ed2);
         resultText=findViewById(R.id.resultText);
+        popupbutton=findViewById(R.id.popupmenu);
         registerForContextMenu(ed1);
         registerForContextMenu(ed2);
 
@@ -95,6 +98,30 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return true;
+    }
+
+    public void doPopupMenu(View view) {
+        PopupMenu popup = new PopupMenu(MainActivity.this, popupbutton);
+        popup.getMenuInflater().inflate(
+                R.menu.popup_menu, popup.getMenu());
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch(menuItem.getItemId())
+                {
+                    case R.id.pop1:
+                        Toast.makeText(MainActivity.this,"pop1",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.pop2:
+                        Toast.makeText(MainActivity.this,"pop2",Toast.LENGTH_SHORT).show();
+                        break;
+
+                }
+                return false;
+            }
+            // implement click listener
+        });
+        popup.show();
     }
 }
 

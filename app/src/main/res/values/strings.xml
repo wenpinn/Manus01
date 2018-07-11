@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Manus01</string>
+    <string name="pop1">pop1</string>
+    <string name="pop2">pop2</string>
+    <string name="menu_app">Menu App</string>
+    <string name="enter_text">Enter Text</string>
+    <string name="enter_second_text">Enter Second Text</string>
+    <string name="popup_menu">Popup menu</string>
 </resources>
